@@ -4,4 +4,8 @@ object Constants {
 
     const val SPLASH_SCREEN_DURATION = 2500L
 
+    const val MAIN_SCREEN = "main"
+    const val INFO_SCREEN = "info"
+    const val INFO_ARGS_ID = "infoArgsId"
+
 }
