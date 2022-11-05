@@ -23,7 +23,7 @@ import com.example.applaudochallenge.R
 import com.example.applaudochallenge.ui.theme.ApplaudoChallengeTheme
 
 @Composable
-fun MovieCard(
+fun TvShowCard(
     name: String,
     rating: Double,
     url: String
@@ -50,7 +50,7 @@ fun MovieCard(
             Text(
                 text = name,
                 modifier = Modifier.padding(start = 8.dp, end = 8.dp, top = 16.dp),
-                color = colorResource(id = R.color.movie_card_title_color),
+                color = colorResource(id = R.color.tvshow_card_title_color),
                 textAlign = TextAlign.Start,
                 fontWeight = FontWeight.Medium
             )
@@ -69,7 +69,7 @@ fun MovieCard(
                 )
                 Text(
                     text = rating.toString(),
-                    color = colorResource(id = R.color.movie_card_rating_color),
+                    color = colorResource(id = R.color.tvshow_card_rating_color),
                     textAlign = TextAlign.Start,
                     modifier = Modifier
                         .padding(start = 8.dp, end = 8.dp),
@@ -81,10 +81,10 @@ fun MovieCard(
 
 @Preview("default")
 @Composable
-fun MovieCardPreview() {
+fun TvShowCardPreview() {
     ApplaudoChallengeTheme() {
-        MovieCard(
-            name = "Movie Name",
+        TvShowCard(
+            name = "TV Show Name",
             rating = 5.0,
             url = "https://picsum.photos/300/300"
         )

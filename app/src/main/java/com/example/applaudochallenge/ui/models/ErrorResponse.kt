@@ -1,4 +1,4 @@
-package com.example.applaudochallenge.ui.model
+package com.example.applaudochallenge.ui.models
 
 data class ErrorResponse(
     val status_code: Int,

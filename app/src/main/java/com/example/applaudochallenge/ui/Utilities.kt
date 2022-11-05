@@ -22,7 +22,7 @@ internal fun RatingBar(
     modifier: Modifier = Modifier,
     rating: Double = 0.0,
     stars: Int = 5,
-    starsColor: Color = colorResource(id = R.color.movie_card_stars_color),
+    starsColor: Color = colorResource(id = R.color.tvshow_card_stars_color),
 ) {
 
     val filledStars = floor(rating).toInt()

@@ -5,9 +5,9 @@
     <color name="splash_gradient_end_color">#FF6243FF</color>
     <color name="transparent">#00000000</color>
 
-    <color name="movie_card_title_color">#6B6B83</color>
-    <color name="movie_card_rating_color">#696969</color>
-    <color name="movie_card_stars_color">#21BDCA</color>
+    <color name="tvshow_card_title_color">#6B6B83</color>
+    <color name="tvshow_card_rating_color">#696969</color>
+    <color name="tvshow_card_stars_color">#21BDCA</color>
 
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>

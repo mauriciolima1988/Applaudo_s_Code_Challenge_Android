@@ -30,7 +30,7 @@ object NetworkModule {
         return GsonConverterFactory.create(json)
     }
 
-    fun provideRetrofitTheMovieDBApiInstance(
+    fun provideRetrofitTvShowsApiInstance(
         okHttpClient: OkHttpClient,
         gsonConverterFactory: GsonConverterFactory
     ): Retrofit {
@@ -42,7 +42,7 @@ object NetworkModule {
             .build()
     }
 
-    fun provideTheMovieDBApiService(retrofit: Retrofit): MoviesApi {
-        return retrofit.create(MoviesApi::class.java)
+    fun provideTvShowsApiService(retrofit: Retrofit): TvShowsApi {
+        return retrofit.create(TvShowsApi::class.java)
     }
 }

@@ -1,6 +1,6 @@
-package com.example.applaudochallenge.ui.model
+package com.example.applaudochallenge.ui.models
 
-data class Movies(
+data class TvShow(
     val adult: Boolean,
     val backdrop_path: String,
     val genre_ids: List<Int>,
