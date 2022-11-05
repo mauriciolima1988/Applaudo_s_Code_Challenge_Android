@@ -18,7 +18,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import coil.compose.rememberImagePainter
+import coil.compose.rememberAsyncImagePainter
 import com.example.applaudochallenge.R
 import com.example.applaudochallenge.ui.theme.ApplaudoChallengeTheme
 
@@ -28,7 +28,7 @@ fun MovieCard(
     rating: Double,
     url: String
 ) {
-    val painter = rememberImagePainter(data = url)
+    val painter = rememberAsyncImagePainter(model = url)
 
     Card(
         modifier = Modifier
