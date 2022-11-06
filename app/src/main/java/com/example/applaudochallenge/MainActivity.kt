@@ -11,7 +11,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.applaudochallenge.ui.navigation.MainNavigation
 import com.example.applaudochallenge.ui.theme.ApplaudoChallengeTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +23,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    //MainNavigation(modifier = Modifier.fillMaxSize())
+                    MainNavigation(modifier = Modifier.fillMaxSize())
                 }
             }
         }
