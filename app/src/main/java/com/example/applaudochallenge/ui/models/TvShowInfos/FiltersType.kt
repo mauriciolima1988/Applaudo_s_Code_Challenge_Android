@@ -1,4 +1,4 @@
-package com.example.applaudochallenge.ui.models
+package com.example.applaudochallenge.ui.models.TvShowInfos
 
 enum class FiltersType(val filterName: String) {
     Popular("popular"),

@@ -1,18 +1,31 @@
-package com.example.applaudochallenge.network
+package com.example.applaudochallenge.di
 
 import com.example.applaudochallenge.BuildConfig
+import com.example.applaudochallenge.network.ResponseAdapterFactory
+import com.example.applaudochallenge.network.TvShowsApi
 import com.google.gson.Gson
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import okhttp3.logging.HttpLoggingInterceptor
 import okhttp3.OkHttpClient
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.Retrofit
+import javax.inject.Singleton
 
+@Module
+@InstallIn(SingletonComponent::class)
 object NetworkModule {
 
+    @Singleton
+    @Provides
     fun provideOkHttpLoggingInterceptor(): HttpLoggingInterceptor {
         return HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
     }
 
+    @Singleton
+    @Provides
     fun provideOkHttpClient(okHttpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
         val builder = OkHttpClient.Builder()
             .also {
@@ -23,6 +36,8 @@ object NetworkModule {
         return builder.build()
     }
 
+    @Singleton
+    @Provides
     fun provideGsonConverterFactory(): GsonConverterFactory {
         val json = Gson().newBuilder()
             .setLenient()
@@ -30,6 +45,8 @@ object NetworkModule {
         return GsonConverterFactory.create(json)
     }
 
+    @Singleton
+    @Provides
     fun provideRetrofitTvShowsApiInstance(
         okHttpClient: OkHttpClient,
         gsonConverterFactory: GsonConverterFactory
@@ -42,6 +59,8 @@ object NetworkModule {
             .build()
     }
 
+    @Singleton
+    @Provides
     fun provideTvShowsApiService(retrofit: Retrofit): TvShowsApi {
         return retrofit.create(TvShowsApi::class.java)
     }

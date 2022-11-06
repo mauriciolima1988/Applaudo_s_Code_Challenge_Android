@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Applaudo Challenge</string>
+    <string name="main_screen_title">Tv Shows</string>
+    <string name="network_error">Error, try reloading</string>
+    <string name="summary">Summary</string>
+
+    <string name="try_again_btn_text">Try Again</string>
+    <string name="no_internet_on_splash">No, internet connection, please try again later.</string>
+    <string name="no_results">No Results, please try again.</string>
+    <string name="tv_shows_title">Tv Shows</string>
+    <string name="added_favorites">Added to Favorites</string>
+    <string name="remove_favorites">Removed from Favorites</string>
+    <string name="episodes">Episodes</string>
 </resources>

@@ -5,11 +5,13 @@
         <item name="android:statusBarColor">@color/purple_700</item>
     </style>
 
-    <style name="Splash">
+    <style name="Splash" parent="@style/Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@drawable/background_splash</item>
         <item name="android:statusBarColor">@color/transparent</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
     </style>
 
 </resources>

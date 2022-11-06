@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
+import com.example.applaudochallenge.BuildConfig
 import com.example.applaudochallenge.R
 import kotlin.math.ceil
 import kotlin.math.floor
@@ -63,3 +64,8 @@ internal fun RatingBar(
 private fun StarsSize() = Modifier
     .height(16.dp)
     .width(16.dp)
+
+fun String.getImageByPath(): String {
+    val baseUrl = BuildConfig.BASE_URL
+    return "$baseUrl${this}"
+}
