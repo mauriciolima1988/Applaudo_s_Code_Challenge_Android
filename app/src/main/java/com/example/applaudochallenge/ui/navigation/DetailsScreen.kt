@@ -18,22 +18,47 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.SubcomposeAsyncImage
 import coil.request.ImageRequest
 import com.example.applaudochallenge.R
 import com.example.applaudochallenge.database.FavoriteTvShow
 import com.example.applaudochallenge.network.LoadingUiState
 import com.example.applaudochallenge.ui.DetailsPageWithState
-import com.example.applaudochallenge.ui.RatingBar
-import com.example.applaudochallenge.ui.getImageByPath
+import com.example.applaudochallenge.ui.widgets.RatingBar
+import com.example.applaudochallenge.utilities.getImageByPath
 import com.example.applaudochallenge.ui.models.TvShowDetails
 import com.example.applaudochallenge.ui.models.TvShowInfos.ShortSeason
 import com.example.applaudochallenge.ui.widgets.BackButton
+
+@OptIn(ExperimentalLifecycleComposeApi::class)
+@Composable
+fun DetailsScreen(
+    viewModel: InfoScreenViewModel = hiltViewModel(),
+    onBackPressed: () -> Unit
+) {
+
+    val loadingUiState by viewModel.uiState.collectAsStateWithLifecycle()
+    val isInFavorites by viewModel.isInFavorites.collectAsStateWithLifecycle()
+
+    DetailsView(
+        isInFavorites = isInFavorites,
+        loadingUiState = loadingUiState,
+        onFavoriteButtonClick = { tvShowDetails ->
+            insertInFavoritesClickEvent(viewModel, tvShowDetails, isInFavorites)
+        },
+        onBackPressed = onBackPressed,
+    )
+}
 
 @Composable
 fun DetailsView(
@@ -57,7 +82,7 @@ fun DetailsView(
     ) { tvShowDetails ->
 
         Scaffold(
-            modifier = modifier,
+            modifier = modifier.fillMaxHeight(),
             topBar = {
                 AnimatedVisibility(
                     visible = whenItemVisible,
@@ -272,11 +297,11 @@ fun SeasonsSection(seasons: List<ShortSeason>) {
 fun SeasonView(season: ShortSeason) {
     Card(
         modifier = Modifier
-            .height(32.dp)
+            .height(144.dp)
             .fillMaxWidth()
             .padding(8.dp),
         shape = RoundedCornerShape(10.dp),
-        elevation = 10.dp,
+        elevation = 2.dp,
     ) {
         Row {
             season.poster_path?.let {
@@ -303,21 +328,26 @@ private fun ContentView(
             modifier = modifier.fillMaxWidth(),
             text = season.name,
             fontWeight = FontWeight.Bold,
+            fontSize = 20.sp,
             textAlign = TextAlign.Start,
             maxLines = 2,
-            overflow = TextOverflow.Ellipsis
+            overflow = TextOverflow.Ellipsis,
+            color = colorResource(id = R.color.text_color),
         )
         Text(
             modifier = modifier.fillMaxWidth(),
-            fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colors.primary,
+            fontWeight = FontWeight.SemiBold,
+            fontSize = 12.sp,
+            color = colorResource(id = R.color.primary_color),
             text = "${season.episode_count} ${stringResource(id = R.string.episodes)}"
         )
         Text(
             modifier = modifier.fillMaxWidth(),
             text = season.overview,
+            fontSize = 12.sp,
             maxLines = 3,
-            overflow = TextOverflow.Ellipsis
+            overflow = TextOverflow.Ellipsis,
+            color = colorResource(id = R.color.subtle_text_color)
         )
     }
 }

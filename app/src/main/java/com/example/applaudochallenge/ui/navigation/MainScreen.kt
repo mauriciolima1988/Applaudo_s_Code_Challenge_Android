@@ -13,12 +13,16 @@ import com.example.applaudochallenge.network.getNetworkStatus
 import com.example.applaudochallenge.ui.TopBar
 import com.example.applaudochallenge.ui.models.TvShowInfos.FiltersType
 import androidx.paging.compose.collectAsLazyPagingItems
+import com.example.applaudochallenge.ui.models.TvShow
+import com.example.applaudochallenge.ui.models.TvShowInfos.getTvShowFilters
+import com.example.applaudochallenge.ui.navigation.components.FiltersAndTvShowsColumn
 
 @Composable
 fun MainScreen(
     viewModel: MainScreenViewModel = hiltViewModel(),
-    onFavoriteClick: () -> Unit,
-    onCardClick: (Int) -> Unit
+    onSearchClick: () -> Unit,
+    onProfileClick: () -> Unit,
+    onCardClick: (Int) -> Unit,
 ) {
     val tvShows = viewModel.tvShows.collectAsLazyPagingItems()
     val netWorkStatus = getNetworkStatus()
@@ -39,48 +43,52 @@ fun MainScreen(
         }
     }
 
-    MainScreen(
+    MainView(
         loadingUiState = loadingUiState,
         onEmptyButtonClick = { viewModel.getFilteredTvShows(FiltersType.Popular.filterName) },
-        onFavoriteClick = onFavoriteClick,
+        onSearchClick = onSearchClick,
+        onProfileClick = onProfileClick,
         onCardClick = onCardClick,
-        onFilterSelected = { viewModel.getFilteredTvShows(it) }
+        onFilterSelected = { viewModel.getFilteredTvShows(it) },
+        onRefresh = { viewModel.getFilteredTvShows(getTvShowFilters()[0].filterName) },
+        onCache = { viewModel.cacheTvShows(it) },
     )
 }
 
 @Composable
-fun MainScreen(
+fun MainView(
     modifier: Modifier = Modifier,
     loadingUiState: LoadingUiState?,
-    onFavoriteClick: () -> Unit,
+    onSearchClick: () -> Unit,
+    onProfileClick: () -> Unit,
     onCardClick: (Int) -> Unit,
     onFilterSelected: (String) -> Unit,
     onEmptyButtonClick: () -> Unit,
+    onRefresh: () -> Unit,
+    onCache: (TvShow) -> Unit,
 ) {
     Scaffold(
         modifier = modifier.fillMaxSize(),
-        topBar = { TopBar(onFavoriteClick) }
+        topBar = { TopBar(onSearchClick, onProfileClick) }
     ) { paddingValues ->
         Column(modifier = Modifier.padding(paddingValues)) {
             FiltersAndTvShowsColumn(
                 onFilterSelected,
                 onCardClick,
                 loadingUiState,
-                onEmptyButtonClick
+                onEmptyButtonClick,
+                onRefresh,
+                onCache
             )
         }
     }
 }
 
-@Composable
-private fun FiltersAndTvShowsColumn(
-    onFilterSelected: (String) -> Unit,
-    onCardClick: (Int) -> Unit,
-    loadingUiState: LoadingUiState?,
-    onEmptyButtonClick: () -> Unit,
-) {
 
-    Column {
-        // TODO insert filters pills bar and tv shows list
-    }
-}
+
+
+
+
+
+
+

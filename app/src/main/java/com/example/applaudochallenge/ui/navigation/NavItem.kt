@@ -5,6 +5,8 @@ import androidx.navigation.navArgument
 import com.example.applaudochallenge.Constants.INFO_SCREEN
 import com.example.applaudochallenge.Constants.MAIN_SCREEN
 import com.example.applaudochallenge.Constants.INFO_ARGS_ID
+import com.example.applaudochallenge.Constants.PROFILE_SCREEN
+import com.example.applaudochallenge.Constants.SEARCH_SCREEN
 
 enum class NavArgs(
     val key: String,
@@ -32,6 +34,8 @@ sealed class NavItem(
     }
 
     object Main : NavItem(MAIN_SCREEN)
+    object Search : NavItem(SEARCH_SCREEN)
+    object Profile : NavItem(PROFILE_SCREEN)
     object Details : NavItem(INFO_SCREEN, listOf(NavArgs.InfoId)) {
         fun createRoute(id: Int) = "$baseRoute/$id"
     }
