@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import com.example.applaudochallenge.R
 import com.example.applaudochallenge.ui.theme.ApplaudoChallengeTheme
+import com.example.applaudochallenge.ui.widgets.RatingBar
 
 @Composable
 fun TvShowCard(
