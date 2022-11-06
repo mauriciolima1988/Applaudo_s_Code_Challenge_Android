@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="primary_color">#6243FF</color>
+    <color name="secondary_color">#0013CA</color>
+    <color name="text_color">#6B6B83</color>
+    <color name="subtle_text_color">#8C8CA1</color>
+
+    <color name="primary_semitransparent_color">#2F6243FF</color>
+
     <color name="splash_gradient_start_color">#FF31B5FE</color>
     <color name="splash_gradient_center_color">#FF6243FF</color>
     <color name="splash_gradient_end_color">#FF6243FF</color>
@@ -8,6 +15,8 @@
     <color name="tvshow_card_title_color">#6B6B83</color>
     <color name="tvshow_card_rating_color">#696969</color>
     <color name="tvshow_card_stars_color">#21BDCA</color>
+
+    <color name="error_color">#F65164</color>
 
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>

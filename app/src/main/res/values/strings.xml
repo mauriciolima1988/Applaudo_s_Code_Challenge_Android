@@ -3,6 +3,16 @@
     <string name="main_screen_title">Tv Shows</string>
     <string name="network_error">Error, try reloading</string>
     <string name="summary">Summary</string>
+    <string name="my_favorites">My Favorites</string>
+    <string name="favorites_empty">You haven\'t added favorite TV shows yet.</string>
+    <string name="profile">Profile</string>
+    <string name="profile_mock_name">Patricio Flores</string>
+    <string name="profile_mock_username">\@patricio_flores</string>
+    <string name="logout_button_text">LOG OUT</string>
+
+    <string name="leave_dialog_message">Are you sure you want to leave?</string>
+    <string name="stay_dialog_button_text">STAY</string>
+    <string name="leave_dialog_button_text">LEAVE</string>
 
     <string name="try_again_btn_text">Try Again</string>
     <string name="no_internet_on_splash">No, internet connection, please try again later.</string>
@@ -11,4 +21,6 @@
     <string name="added_favorites">Added to Favorites</string>
     <string name="remove_favorites">Removed from Favorites</string>
     <string name="episodes">Episodes</string>
+    <string name="no_connection_found">No internet connection found</string>
+    <string name="default_tvshows_filter">popular</string>
 </resources>
