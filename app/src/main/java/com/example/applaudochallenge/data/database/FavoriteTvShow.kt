@@ -10,6 +10,6 @@ data class FavoriteTvShow(
     val id: Int,
     val name: String,
     val overview: String,
-    val poster_path: String,
+    val poster_path: String?,
     val vote_average: Double
 )

@@ -24,6 +24,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
@@ -41,6 +42,7 @@ import com.example.applaudochallenge.data.models.tvshowdetails.ShortSeason
 import com.example.applaudochallenge.ui.navigation.viewmodels.DetailsScreenViewModel
 import com.example.applaudochallenge.ui.theme.dimension
 import com.example.applaudochallenge.ui.widgets.BackButton
+import com.example.applaudochallenge.ui.widgets.DropdownNullImgUrl
 
 @OptIn(ExperimentalLifecycleComposeApi::class)
 @Composable
@@ -107,7 +109,7 @@ private fun DetailsView(
                 item {
                     HeaderSection(
                         modifier = Modifier,
-                        imageUrl = tvShowDetails.backdrop_path,
+                        imageUrl = tvShowDetails.backdrop_path ?: "",
                         name = tvShowDetails.name,
                         average = (tvShowDetails.vote_average / 2)
                     )
@@ -188,21 +190,25 @@ private fun HeaderSection(
         contentAlignment = Alignment.BottomStart
     ) {
 
-        SubcomposeAsyncImage(
-            modifier = Modifier
-                .fillMaxWidth()
-                .fillMaxHeight(.5f),
-            model = ImageRequest.Builder(context)
-                .data(imageUrl.getImageByPath())
-                .placeholder(R.drawable.ic_loading)
-                .error(R.drawable.ic_loading_error)
-                .crossfade(true)
-                .build(),
-            contentDescription = name,
-            alignment = Alignment.Center,
-            loading = { LinearProgressIndicator() },
-            contentScale = ContentScale.FillWidth
-        )
+        if (imageUrl != "") {
+            DropdownNullImgUrl(modifier)
+        } else {
+            SubcomposeAsyncImage(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .fillMaxHeight(.5f),
+                model = ImageRequest.Builder(context)
+                    .data(imageUrl.getImageByPath())
+                    .placeholder(R.drawable.ic_loading)
+                    .error(R.drawable.ic_loading_error)
+                    .crossfade(true)
+                    .build(),
+                contentDescription = name,
+                alignment = Alignment.Center,
+                loading = { LinearProgressIndicator() },
+                contentScale = ContentScale.FillWidth
+            )
+        }
         Column(
             modifier = Modifier.padding(MaterialTheme.dimension.sizeDp16),
             horizontalAlignment = Alignment.Start

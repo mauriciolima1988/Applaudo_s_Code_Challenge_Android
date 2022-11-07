@@ -10,7 +10,7 @@ import com.example.applaudochallenge.data.models.tvshowdetails.ShortSeason
 import com.example.applaudochallenge.data.models.tvshowdetails.SpokenLanguage
 
 data class TvShowDetails(
-    val backdrop_path: String,
+    val backdrop_path: String?,
     val created_by: List<CreatedBy>,
     val episode_run_time: List<Int>,
     val first_air_date: String,
@@ -31,7 +31,7 @@ data class TvShowDetails(
     val original_name: String,
     val overview: String,
     val popularity: Double,
-    val poster_path: String,
+    val poster_path: String?,
     val production_companies: List<ProductionCompany>,
     val production_countries: List<ProductionCountry>,
     val seasons: List<ShortSeason>,

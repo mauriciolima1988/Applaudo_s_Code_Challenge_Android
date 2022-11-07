@@ -188,7 +188,7 @@ internal fun FavoritesListItem(
         elevation = MaterialTheme.dimension.sizeDp4
     ) {
         Column {
-            ImageViewSection(imageUrl = favoriteTvShow.poster_path)
+            ImageViewSection(imageUrl = favoriteTvShow.poster_path ?: "")
             Spacer(modifier = Modifier.height(MaterialTheme.dimension.sizeDp8))
             Column(
                 modifier = Modifier.padding(MaterialTheme.dimension.sizeDp8)
