@@ -23,6 +23,7 @@ import com.example.applaudochallenge.R
 import com.example.applaudochallenge.ui.models.TvShowInfos.FiltersType
 import com.example.applaudochallenge.ui.models.TvShowInfos.getFilterMap
 import com.example.applaudochallenge.ui.models.TvShowInfos.getTvShowFilters
+import com.example.applaudochallenge.ui.theme.dimension
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
@@ -35,11 +36,11 @@ internal fun FiltersChipGroup(
     val defaultFilter = stringResource(id = R.string.default_tvshows_filter)
     val selectedFilter = rememberSaveable { mutableStateOf(getFilterMap(defaultFilter)) }
 
-    Box(modifier = modifier.padding(4.dp)) {
+    Box(modifier = modifier.padding(MaterialTheme.dimension.sizeDp4)) {
         LazyRow {
             items(filters) { filter ->
                 FilterChip(
-                    modifier = Modifier.padding(horizontal = 2.dp),
+                    modifier = Modifier.padding(horizontal = MaterialTheme.dimension.sizeDp2),
                     selected = selectedFilter.value == filter,
                     onClick = {
                         selectedFilter.value = getFilterMap(filter.filterName)
@@ -52,7 +53,7 @@ internal fun FiltersChipGroup(
                     )
                 ) {
                     Text(
-                        modifier = Modifier.padding(8.dp),
+                        modifier = Modifier.padding(MaterialTheme.dimension.sizeDp8),
                         text = filter.filterName.capitalize(Locale.current).replace("_", " ")
                     )
                 }

@@ -10,8 +10,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import com.example.applaudochallenge.R
+import com.example.applaudochallenge.ui.theme.dimension
 
 @Composable
 internal fun TopBar(
@@ -22,7 +22,7 @@ internal fun TopBar(
     TopAppBar(
         modifier = Modifier
             .fillMaxWidth()
-            .height(48.dp),
+            .height(MaterialTheme.dimension.sizeDp48),
         title = {
             Text(
                 text = stringResource(id = R.string.main_screen_title),

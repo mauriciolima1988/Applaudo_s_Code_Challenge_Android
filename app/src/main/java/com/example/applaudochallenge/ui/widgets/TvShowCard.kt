@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -17,10 +18,10 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import com.example.applaudochallenge.R
 import com.example.applaudochallenge.ui.theme.ApplaudoChallengeTheme
+import com.example.applaudochallenge.ui.theme.dimension
 import com.example.applaudochallenge.ui.widgets.RatingBar
 
 @Composable
@@ -33,11 +34,11 @@ fun TvShowCard(
 
     Card(
         modifier = Modifier
-            .padding(8.dp)
+            .padding(MaterialTheme.dimension.sizeDp8)
             .wrapContentSize()
             .clickable { },
-        shape = RoundedCornerShape(8.dp),
-        elevation = 2.dp
+        shape = RoundedCornerShape(MaterialTheme.dimension.sizeDp8),
+        elevation = MaterialTheme.dimension.sizeDp2
     ) {
         Column(
         ) {
@@ -50,22 +51,28 @@ fun TvShowCard(
 
             Text(
                 text = name,
-                modifier = Modifier.padding(start = 8.dp, end = 8.dp, top = 16.dp),
+                modifier = Modifier.padding(
+                    start = MaterialTheme.dimension.sizeDp8,
+                    end = MaterialTheme.dimension.sizeDp8,
+                    top = MaterialTheme.dimension.sizeDp16,
+                ),
                 color = colorResource(id = R.color.tvshow_card_title_color),
                 textAlign = TextAlign.Start,
                 fontWeight = FontWeight.Medium
             )
 
             Row(
-                modifier = Modifier
-                    .wrapContentSize()
-                    .padding(start = 8.dp, end = 8.dp, bottom = 16.dp),
+                modifier = Modifier.padding(
+                    start = MaterialTheme.dimension.sizeDp8,
+                    end = MaterialTheme.dimension.sizeDp8,
+                    top = MaterialTheme.dimension.sizeDp16,
+                ),
                 horizontalArrangement = Arrangement.SpaceEvenly,
 
                 ) {
                 RatingBar(
                     modifier = Modifier
-                        .padding(top = 4.dp),
+                        .padding(top = MaterialTheme.dimension.sizeDp4),
                     rating = rating,
                 )
                 Text(
@@ -73,7 +80,10 @@ fun TvShowCard(
                     color = colorResource(id = R.color.tvshow_card_rating_color),
                     textAlign = TextAlign.Start,
                     modifier = Modifier
-                        .padding(start = 8.dp, end = 8.dp),
+                        .padding(
+                            start = MaterialTheme.dimension.sizeDp8,
+                            end = MaterialTheme.dimension.sizeDp8
+                        ),
                 )
             }
         }

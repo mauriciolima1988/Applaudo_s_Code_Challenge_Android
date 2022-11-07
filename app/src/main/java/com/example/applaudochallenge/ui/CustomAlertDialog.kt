@@ -6,24 +6,25 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.material.AlertDialog
+import androidx.compose.material.MaterialTheme
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import com.example.applaudochallenge.R
+import com.example.applaudochallenge.ui.theme.dimension
 
 @Composable
 internal fun CustomAlertDialog(
     message: String,
     positiveText: String,
     negativeText: String,
-    showLeaveDialog: MutableState<Boolean>,
+    showDialog: MutableState<Boolean>,
     onAction: () -> Unit
 ) {
     AlertDialog(
-        onDismissRequest = { showLeaveDialog.value = false },
+        onDismissRequest = { showDialog.value = false },
         text = { Text(message) },
         confirmButton = {
             ClickableText(
@@ -32,9 +33,9 @@ internal fun CustomAlertDialog(
                     color = colorResource(id = R.color.primary_color),
                     fontWeight = FontWeight.Bold,
                 ),
-                modifier = Modifier.padding(16.dp),
+                modifier = Modifier.padding(MaterialTheme.dimension.sizeDp16),
                 onClick = {
-                    showLeaveDialog.value = false
+                    showDialog.value = false
                 })
         },
         dismissButton = {
@@ -44,9 +45,9 @@ internal fun CustomAlertDialog(
                     color = colorResource(id = R.color.error_color),
                     fontWeight = FontWeight.Bold,
                 ),
-                modifier = Modifier.padding(16.dp),
+                modifier = Modifier.padding(MaterialTheme.dimension.sizeDp16),
                 onClick = {
-                    showLeaveDialog.value = false
+                    showDialog.value = false
                     onAction()
                 })
         }

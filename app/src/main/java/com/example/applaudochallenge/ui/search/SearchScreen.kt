@@ -45,7 +45,7 @@ private fun SearchBar(
     TopAppBar(
         modifier = Modifier
             .fillMaxWidth()
-            .height(48.dp),
+            .height(MaterialTheme.dimension.sizeDp48),
         title = {
             TopBarSearchField(textFieldValue)
         },
@@ -76,22 +76,22 @@ private fun TopBarSearchField(textFieldValue: MutableState<String>) {
                 end = MaterialTheme.dimension.sizeDp8,
             )
             .fillMaxSize(),
-        shape = RoundedCornerShape(8.dp),
-        elevation = 8.dp
+        shape = RoundedCornerShape(MaterialTheme.dimension.sizeDp8),
+        elevation = MaterialTheme.dimension.sizeDp8
     ) {
         val source = remember { MutableInteractionSource() }
         val searchDefault = stringResource(id = R.string.search)
-        if (source.collectIsPressedAsState().value && textFieldValue.value == searchDefault){
+        if (source.collectIsPressedAsState().value && textFieldValue.value == searchDefault) {
             textFieldValue.value = ""
         }
 
         BasicTextField(
             interactionSource = source,
             modifier = Modifier
-                .padding(4.dp)
+                .padding(MaterialTheme.dimension.sizeDp4)
                 .background(
                     color = Color.White,
-                    shape = RoundedCornerShape(8.dp)
+                    shape = RoundedCornerShape(MaterialTheme.dimension.sizeDp8)
                 ),
             value = textFieldValue.value,
             onValueChange = { newText ->

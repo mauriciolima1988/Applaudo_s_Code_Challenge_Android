@@ -32,6 +32,7 @@ import com.example.applaudochallenge.ui.CustomAlertDialog
 import com.example.applaudochallenge.ui.navigation.components.ImageViewSection
 import com.example.applaudochallenge.ui.navigation.components.RatingViewSection
 import com.example.applaudochallenge.ui.navigation.components.TitleViewSection
+import com.example.applaudochallenge.ui.theme.dimension
 
 @OptIn(ExperimentalLifecycleComposeApi::class)
 @Composable
@@ -88,7 +89,7 @@ private fun ProfileTopBar(
     TopAppBar(
         modifier = Modifier
             .fillMaxWidth()
-            .height(48.dp),
+            .height(MaterialTheme.dimension.sizeDp80),
         title = {
             Text(
                 text = stringResource(id = R.string.profile),
@@ -97,11 +98,11 @@ private fun ProfileTopBar(
         },
         navigationIcon = {
             IconButton(
-                modifier = Modifier.size(32.dp),
+                modifier = Modifier.size(MaterialTheme.dimension.sizeDp32),
                 onClick = onBackPressed
             ) {
                 Icon(
-                    modifier = Modifier.size(24.dp),
+                    modifier = Modifier.size(MaterialTheme.dimension.sizeDp24),
                     imageVector = Icons.Default.ArrowBack,
                     tint = Color.White,
                     contentDescription = null
@@ -114,7 +115,7 @@ private fun ProfileTopBar(
 
 @Composable
 fun LogOutButtonSection(showLeaveDialog: MutableState<Boolean>) {
-    Spacer(modifier = Modifier.height(8.dp))
+    Spacer(modifier = Modifier.height(MaterialTheme.dimension.sizeDp8))
     Row(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
@@ -123,8 +124,8 @@ fun LogOutButtonSection(showLeaveDialog: MutableState<Boolean>) {
         Button(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp)
-                .size(48.dp),
+                .padding(MaterialTheme.dimension.sizeDp16)
+                .size(MaterialTheme.dimension.sizeDp48),
             onClick = {
                 showLeaveDialog.value = true
             }
@@ -145,12 +146,12 @@ fun FavoriteSection(favoritesList: List<FavoriteTvShow>) {
         horizontalAlignment = Alignment.Start
     ) {
         Text(
-            modifier = Modifier.padding(horizontal = 16.dp),
+            modifier = Modifier.padding(horizontal = MaterialTheme.dimension.sizeDp16),
             text = stringResource(id = R.string.my_favorites),
             fontWeight = FontWeight.Bold
         )
         if (favoritesList.isEmpty()) {
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(MaterialTheme.dimension.sizeDp16))
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
@@ -161,9 +162,9 @@ fun FavoriteSection(favoritesList: List<FavoriteTvShow>) {
                 )
             }
         } else {
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(MaterialTheme.dimension.sizeDp8))
             LazyRow(
-                modifier = Modifier.padding(horizontal = 8.dp)
+                modifier = Modifier.padding(horizontal = MaterialTheme.dimension.sizeDp8)
             ) {
                 items(favoritesList) { favTvShow ->
                     FavoritesListItem(favoriteTvShow = favTvShow)
@@ -180,19 +181,19 @@ fun FavoritesListItem(
 ) {
     Card(
         modifier = modifier
-            .padding(8.dp)
-            .size(width = 192.dp, height = 244.dp),
-        shape = RoundedCornerShape(8.dp),
-        elevation = 4.dp
+            .padding(MaterialTheme.dimension.sizeDp8)
+            .size(width = MaterialTheme.dimension.sizeDp192, height = MaterialTheme.dimension.sizeDp244),
+        shape = RoundedCornerShape(MaterialTheme.dimension.sizeDp8),
+        elevation = MaterialTheme.dimension.sizeDp4
     ) {
         Column {
             ImageViewSection(imageUrl = favoriteTvShow.poster_path)
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(MaterialTheme.dimension.sizeDp8))
             Column(
-                modifier = Modifier.padding(8.dp)
+                modifier = Modifier.padding(MaterialTheme.dimension.sizeDp8)
             ) {
                 TitleViewSection(tvShowName = favoriteTvShow.name)
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(MaterialTheme.dimension.sizeDp8))
                 RatingViewSection(tvShowScoreRating = favoriteTvShow.vote_average)
             }
         }
@@ -201,7 +202,7 @@ fun FavoritesListItem(
 
 @Composable
 fun ProfileSection() {
-    Spacer(modifier = Modifier.height(32.dp))
+    Spacer(modifier = Modifier.height(MaterialTheme.dimension.sizeDp32))
     Column(
         modifier = Modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.Center,
@@ -213,35 +214,35 @@ fun ProfileSection() {
             Box(
                 contentAlignment = Alignment.Center,
                 modifier = Modifier
-                    .size(128.dp)
+                    .size(MaterialTheme.dimension.sizeDp128)
                     .border(
-                        16.dp,
+                        MaterialTheme.dimension.sizeDp16,
                         color = colorResource(id = R.color.primary_semitransparent_color),
                         CircleShape
                     )
                     .border(4.dp, color = Color.Transparent, CircleShape),
             ) {
                 Icon(
-                    modifier = Modifier.size(80.dp),
+                    modifier = Modifier.size(MaterialTheme.dimension.sizeDp80),
                     imageVector = Icons.Default.Person,
                     contentDescription = null,
                     tint = Color.Gray
                 )
             }
             FloatingActionButton(
-                modifier = Modifier.size(32.dp),
+                modifier = Modifier.size(MaterialTheme.dimension.sizeDp32),
                 backgroundColor = MaterialTheme.colors.primary,
                 onClick = {}
             ) {
                 Icon(
-                    modifier = Modifier.size(16.dp),
+                    modifier = Modifier.size(MaterialTheme.dimension.sizeDp16),
                     imageVector = Icons.Default.Edit,
                     tint = Color.White,
                     contentDescription = null
                 )
             }
         }
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(MaterialTheme.dimension.sizeDp16))
         Text(
             text = stringResource(id = R.string.profile_mock_name),
         )
@@ -249,6 +250,6 @@ fun ProfileSection() {
             text = stringResource(id = R.string.profile_mock_username),
             fontSize = 10.sp,
         )
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(MaterialTheme.dimension.sizeDp16))
     }
 }

@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Star
 import androidx.compose.material.icons.outlined.StarHalf
@@ -12,8 +13,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.unit.dp
 import com.example.applaudochallenge.R
+import com.example.applaudochallenge.ui.theme.dimension
 import kotlin.math.ceil
 import kotlin.math.floor
 
@@ -64,5 +65,5 @@ fun RatingBar(
 
 @Composable
 private fun StarsSize() = Modifier
-    .height(16.dp)
-    .width(16.dp)
+    .height(MaterialTheme.dimension.sizeDp16)
+    .width(MaterialTheme.dimension.sizeDp16)

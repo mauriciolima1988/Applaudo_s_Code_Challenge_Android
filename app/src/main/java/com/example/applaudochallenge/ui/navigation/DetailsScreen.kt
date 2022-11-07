@@ -38,6 +38,7 @@ import com.example.applaudochallenge.ui.widgets.RatingBar
 import com.example.applaudochallenge.utilities.getImageByPath
 import com.example.applaudochallenge.ui.models.TvShowDetails
 import com.example.applaudochallenge.ui.models.TvShowInfos.ShortSeason
+import com.example.applaudochallenge.ui.theme.dimension
 import com.example.applaudochallenge.ui.widgets.BackButton
 
 @OptIn(ExperimentalLifecycleComposeApi::class)
@@ -74,8 +75,6 @@ fun DetailsView(
             lazyListState.firstVisibleItemIndex >= 1
         }
     }
-
-    val paddingValue = 48.dp
 
     DetailsPageWithState<TvShowDetails>(
         loadingUiState = loadingUiState,
@@ -125,8 +124,8 @@ fun DetailsView(
             if (!whenItemVisible) {
                 BackButton(
                     modifier = Modifier
-                        .size(paddingValue)
-                        .padding(4.dp),
+                        .size(MaterialTheme.dimension.sizeDp48)
+                        .padding(MaterialTheme.dimension.sizeDp4),
                     onBackPressed = onBackPressed
                 )
             }
@@ -143,7 +142,7 @@ fun TopBar(
 
     TopAppBar(
         modifier = modifier
-            .height(48.dp)
+            .height(MaterialTheme.dimension.sizeDp48)
             .fillMaxWidth(),
         title = {
             Text(
@@ -155,11 +154,11 @@ fun TopBar(
         },
         navigationIcon = {
             IconButton(
-                modifier = Modifier.size(32.dp),
+                modifier = Modifier.size(MaterialTheme.dimension.sizeDp32),
                 onClick = onBackPressed
             ) {
                 Icon(
-                    modifier = Modifier.size(24.dp),
+                    modifier = Modifier.size(MaterialTheme.dimension.sizeDp24),
                     imageVector = Icons.Default.ArrowBack,
                     tint = Color.White,
                     contentDescription = null
@@ -199,7 +198,7 @@ fun HeaderSection(
             contentScale = ContentScale.FillWidth
         )
         Column(
-            modifier = Modifier.padding(16.dp),
+            modifier = Modifier.padding(MaterialTheme.dimension.sizeDp16),
             horizontalAlignment = Alignment.Start
         ) {
             Text(
@@ -207,7 +206,7 @@ fun HeaderSection(
                 color = Color.White,
                 fontWeight = FontWeight.Bold
             )
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(MaterialTheme.dimension.sizeDp8))
             RatingBar(
                 rating = average,
                 starsColor = MaterialTheme.colors.secondary
@@ -225,13 +224,13 @@ fun SummaryView(
     val context = LocalContext.current
 
     Column(
-        modifier = Modifier.padding(16.dp),
+        modifier = Modifier.padding(MaterialTheme.dimension.sizeDp16),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.Start
     ) {
 
         if (tvShowDetails.overview.isNotEmpty()) {
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(MaterialTheme.dimension.sizeDp8))
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
@@ -243,9 +242,9 @@ fun SummaryView(
                 )
                 FavoritesButton(onFavoriteClick, tvShowDetails, isInFavorites, context)
             }
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(MaterialTheme.dimension.sizeDp8))
             Text(text = tvShowDetails.overview)
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(MaterialTheme.dimension.sizeDp16))
         } else {
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -270,7 +269,7 @@ private fun FavoritesButton(
     val (isChecked, setChecked) = remember { mutableStateOf(isInFavorites) }
 
     IconToggleButton(
-        modifier = Modifier.size(24.dp),
+        modifier = Modifier.size(MaterialTheme.dimension.sizeDp24),
         checked = isChecked,
         onCheckedChange = {
             setChecked(!isChecked)
@@ -281,7 +280,7 @@ private fun FavoritesButton(
     ) {
         Icon(
             imageVector = if (isChecked) Icons.Outlined.Favorite else Icons.Default.FavoriteBorder,
-            modifier = Modifier.size(24.dp),
+            modifier = Modifier.size(MaterialTheme.dimension.sizeDp24),
             tint = MaterialTheme.colors.primary,
             contentDescription = null
         )
@@ -297,11 +296,11 @@ fun SeasonsSection(seasons: List<ShortSeason>) {
 fun SeasonView(season: ShortSeason) {
     Card(
         modifier = Modifier
-            .height(144.dp)
+            .height(MaterialTheme.dimension.sizeDp144)
             .fillMaxWidth()
-            .padding(8.dp),
-        shape = RoundedCornerShape(10.dp),
-        elevation = 2.dp,
+            .padding(MaterialTheme.dimension.sizeDp8),
+        shape = RoundedCornerShape(MaterialTheme.dimension.sizeDp10),
+        elevation = MaterialTheme.dimension.sizeDp2,
     ) {
         Row {
             season.poster_path?.let {
@@ -320,7 +319,7 @@ private fun ContentView(
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .padding(16.dp),
+            .padding(MaterialTheme.dimension.sizeDp16),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.Start
     ) {
@@ -358,7 +357,7 @@ private fun ImageView(modifier: Modifier = Modifier, url: String, ) {
     SubcomposeAsyncImage(
         modifier = modifier
             .fillMaxHeight()
-            .width(128.dp),
+            .width(MaterialTheme.dimension.sizeDp128),
         model = ImageRequest.Builder(context)
             .data(url.getImageByPath())
             .build(),

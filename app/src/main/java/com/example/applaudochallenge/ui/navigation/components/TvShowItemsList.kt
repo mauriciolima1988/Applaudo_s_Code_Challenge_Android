@@ -8,11 +8,12 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import com.example.applaudochallenge.ui.models.TvShow
+import com.example.applaudochallenge.ui.theme.dimension
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
@@ -23,22 +24,22 @@ internal fun TvShowItemsList(
 ) {
     Card(
         modifier = modifier
-            .padding(8.dp)
+            .padding(MaterialTheme.dimension.sizeDp8)
             .wrapContentSize(align = Alignment.Center),
-        shape = RoundedCornerShape(10.dp),
-        elevation = 10.dp,
+        shape = RoundedCornerShape(MaterialTheme.dimension.sizeDp10),
+        elevation = MaterialTheme.dimension.sizeDp10,
         onClick = { onCardClick(tvShow.id) }
     ) {
         Column {
             ImageViewSection(imageUrl = tvShow.poster_path)
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(MaterialTheme.dimension.sizeDp8))
             Column(
-                modifier = Modifier.padding(8.dp)
+                modifier = Modifier.padding(MaterialTheme.dimension.sizeDp8)
             ) {
                 TitleViewSection(tvShowName = tvShow.name)
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(MaterialTheme.dimension.sizeDp8))
                 RatingViewSection(tvShowScoreRating = tvShow.vote_average)
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(MaterialTheme.dimension.sizeDp8))
             }
         }
     }
