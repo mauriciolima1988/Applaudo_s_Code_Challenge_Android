@@ -8,8 +8,11 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.applaudochallenge.ui.profile.ProfileScreen
-import com.example.applaudochallenge.ui.search.SearchScreen
+import com.example.applaudochallenge.ui.navigation.screens.DetailsScreen
+import com.example.applaudochallenge.ui.navigation.screens.SeasonScreen
+import com.example.applaudochallenge.ui.navigation.screens.MainScreen
+import com.example.applaudochallenge.ui.navigation.screens.ProfileScreen
+import com.example.applaudochallenge.ui.navigation.screens.SearchScreen
 
 @Composable
 fun MainNavigation(
@@ -40,7 +43,16 @@ fun MainNavigation(
             }
         }
         composable(NavItem.Details) {
-            DetailsScreen {
+            DetailsScreen(
+                onSeasonClick = { id: Int, seasonNumber: Int ->
+                    // navController.safeNavigate(NavItem.Season.createRoute(id, seasonNumber))
+                })
+            {
+                navController.popBackStack()
+            }
+        }
+        composable(NavItem.Season) {
+            SeasonScreen {
                 navController.popBackStack()
             }
         }

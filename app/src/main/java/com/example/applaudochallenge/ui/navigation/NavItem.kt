@@ -2,17 +2,20 @@ package com.example.applaudochallenge.ui.navigation
 
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
-import com.example.applaudochallenge.Constants.INFO_SCREEN
-import com.example.applaudochallenge.Constants.MAIN_SCREEN
-import com.example.applaudochallenge.Constants.INFO_ARGS_ID
-import com.example.applaudochallenge.Constants.PROFILE_SCREEN
-import com.example.applaudochallenge.Constants.SEARCH_SCREEN
+import com.example.applaudochallenge.ui.Constants.DETAILS_SCREEN
+import com.example.applaudochallenge.ui.Constants.MAIN_SCREEN
+import com.example.applaudochallenge.ui.Constants.TVSHOW_ARGS_ID
+import com.example.applaudochallenge.ui.Constants.PROFILE_SCREEN
+import com.example.applaudochallenge.ui.Constants.SEARCH_SCREEN
+import com.example.applaudochallenge.ui.Constants.SEASON_ARGS_ID
+import com.example.applaudochallenge.ui.Constants.SEASON_SCREEN
 
 enum class NavArgs(
     val key: String,
     val navigationType: NavType<*>
 ) {
-    InfoId(INFO_ARGS_ID, NavType.IntType)
+    InfoId(TVSHOW_ARGS_ID, NavType.IntType),
+    SeasonId(SEASON_ARGS_ID, NavType.IntType)
 }
 
 sealed class NavItem(
@@ -36,7 +39,10 @@ sealed class NavItem(
     object Main : NavItem(MAIN_SCREEN)
     object Search : NavItem(SEARCH_SCREEN)
     object Profile : NavItem(PROFILE_SCREEN)
-    object Details : NavItem(INFO_SCREEN, listOf(NavArgs.InfoId)) {
+    object Details : NavItem(DETAILS_SCREEN, listOf(NavArgs.InfoId)) {
         fun createRoute(id: Int) = "$baseRoute/$id"
+    }
+    object Season : NavItem(SEASON_SCREEN, listOf(NavArgs.InfoId, NavArgs.SeasonId)) {
+        fun createRoute(id: Int, seasonNumber: Int) = "$baseRoute/$id/$seasonNumber"
     }
 }
