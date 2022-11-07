@@ -2,12 +2,18 @@ package com.example.applaudochallenge
 
 object Constants {
 
-    const val SPLASH_SCREEN_DURATION = 2500L
-
+    // Navigation screens
     const val MAIN_SCREEN = "main"
-    const val INFO_SCREEN = "info"
-    const val INFO_ARGS_ID = "infoArgsId"
+    const val DETAILS_SCREEN = "details"
     const val SEARCH_SCREEN = "search"
     const val PROFILE_SCREEN = "profile"
+    const val SEASON_SCREEN = "season"
+
+    // Navigation arguments
+    const val TVSHOW_ARGS_ID = "tvShowArgsId"
+    const val SEASON_ARGS_ID = "seasonArgsId"
+
+    // Other
+    const val SPLASH_SCREEN_DURATION = 2500L
 
 }
