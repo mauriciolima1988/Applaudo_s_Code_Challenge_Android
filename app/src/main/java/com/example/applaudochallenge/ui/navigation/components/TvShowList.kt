@@ -11,6 +11,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.paging.compose.LazyPagingItems
 import com.example.applaudochallenge.data.models.TvShow
+import com.example.applaudochallenge.utilities.ScreenSize
+import com.example.applaudochallenge.utilities.rememberWindowSize
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import kotlinx.coroutines.delay
@@ -24,6 +26,12 @@ internal fun TvShowList(
 ) {
 
     var refreshing by remember { mutableStateOf(false) }
+    val windowSize = rememberWindowSize()
+    val gridAmount = when (windowSize.horizontalSize) {
+        ScreenSize.HorizontalSize.Normal -> 2
+        ScreenSize.HorizontalSize.Large -> 4
+        ScreenSize.HorizontalSize.ExtraLarge -> 6
+    }
 
     LaunchedEffect(refreshing) {
         if (refreshing) {
@@ -40,7 +48,7 @@ internal fun TvShowList(
         },
     ) {
         LazyVerticalGrid(
-            columns = GridCells.Fixed(2),
+            columns = GridCells.Fixed(gridAmount),
             verticalArrangement = Arrangement.Center,
             horizontalArrangement = Arrangement.Center
         ) {

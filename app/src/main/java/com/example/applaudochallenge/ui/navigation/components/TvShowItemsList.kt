@@ -31,7 +31,7 @@ internal fun TvShowItemsList(
         onClick = { onCardClick(tvShow.id) }
     ) {
         Column {
-            ImageViewSection(imageUrl = tvShow.poster_path)
+            ImageViewSection(imageUrl = tvShow.poster_path ?: "")
             Spacer(modifier = Modifier.height(MaterialTheme.dimension.sizeDp8))
             Column(
                 modifier = Modifier.padding(MaterialTheme.dimension.sizeDp8)

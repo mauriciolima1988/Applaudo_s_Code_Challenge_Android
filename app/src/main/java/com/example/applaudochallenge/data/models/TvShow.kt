@@ -17,7 +17,7 @@ data class TvShow(
     val original_name: String,
     val overview: String,
     val popularity: Double,
-    val poster_path: String,
+    val poster_path: String?,
     val video: Boolean,
     val vote_average: Double,
     val vote_count: Int,
