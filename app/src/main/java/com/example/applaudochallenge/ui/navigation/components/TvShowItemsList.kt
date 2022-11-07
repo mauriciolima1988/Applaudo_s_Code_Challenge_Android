@@ -12,7 +12,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.example.applaudochallenge.ui.models.TvShow
+import com.example.applaudochallenge.data.models.TvShow
 import com.example.applaudochallenge.ui.theme.dimension
 
 @OptIn(ExperimentalMaterialApi::class)

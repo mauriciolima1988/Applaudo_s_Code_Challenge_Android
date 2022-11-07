@@ -44,7 +44,7 @@ fun MainNavigation(
         }
         composable(NavItem.Details) {
             DetailsScreen(
-                onSeasonClick = { id: Int, seasonNumber: Int ->
+                onSeasonClick = { _: Int, _: Int ->
                     // navController.safeNavigate(NavItem.Season.createRoute(id, seasonNumber))
                 })
             {

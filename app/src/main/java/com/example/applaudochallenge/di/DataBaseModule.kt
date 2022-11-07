@@ -2,9 +2,9 @@ package com.example.applaudochallenge.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.applaudochallenge.database.TvShowsInfoDataBase
-import com.example.applaudochallenge.database.dao.TvShowListDao
-import com.example.applaudochallenge.database.dao.FavsTvShowsDao
+import com.example.applaudochallenge.data.database.TvShowsInfoDataBase
+import com.example.applaudochallenge.data.database.dao.TvShowListDao
+import com.example.applaudochallenge.data.database.dao.FavsTvShowsDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -15,7 +15,7 @@ import androidx.compose.ui.text.style.TextAlign
 import com.example.applaudochallenge.R
 
 @Composable
-fun MessageScreen(
+internal fun MessageScreen(
     modifier: Modifier = Modifier,
     message: Int,
     onClick: () -> Unit

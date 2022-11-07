@@ -12,7 +12,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 
 @Composable
-fun ErrorScreen(
+internal fun ErrorScreen(
     modifier: Modifier = Modifier,
     errorMessage: String?,
     errorStringResource: Int?

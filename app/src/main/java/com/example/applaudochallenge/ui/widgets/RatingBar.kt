@@ -22,7 +22,7 @@ import kotlin.math.floor
     https://gist.github.com/CaptnBlubber/8f4ed01756bb8ca01f5c788e6cde82a7
 */
 @Composable
-fun RatingBar(
+internal fun RatingBar(
     modifier: Modifier = Modifier,
     rating: Double = 0.0,
     stars: Int = 5,

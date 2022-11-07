@@ -2,8 +2,8 @@ package com.example.applaudochallenge.ui.navigation.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
-import com.example.applaudochallenge.network.LoadingUiState
-import com.example.applaudochallenge.ui.models.TvShow
+import com.example.applaudochallenge.data.network.LoadingUiState
+import com.example.applaudochallenge.data.models.TvShow
 
 @Composable
 internal fun FiltersAndTvShowsColumn(

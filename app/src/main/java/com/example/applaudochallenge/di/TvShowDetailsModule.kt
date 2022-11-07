@@ -1,11 +1,11 @@
 package com.example.applaudochallenge.di
 
-import com.example.applaudochallenge.database.TvShowDetailsLocalDataSource
-import com.example.applaudochallenge.database.TvShowDetailsLocalDataSourceImp
-import com.example.applaudochallenge.database.TvShowDetailsRepository
-import com.example.applaudochallenge.database.TvShowDetailsRepositoryImp
-import com.example.applaudochallenge.ui.navigation.TvShowDetailsRemoteDataSource
-import com.example.applaudochallenge.ui.navigation.TvShowDetailsRemoteDataSourceImp
+import com.example.applaudochallenge.data.database.TvShowDetailsLocalDataSource
+import com.example.applaudochallenge.data.database.TvShowDetailsLocalDataSourceImp
+import com.example.applaudochallenge.data.database.TvShowDetailsRepository
+import com.example.applaudochallenge.data.database.TvShowDetailsRepositoryImp
+import com.example.applaudochallenge.data.source.TvShowDetailsRemoteDataSource
+import com.example.applaudochallenge.data.source.TvShowDetailsRemoteDataSourceImp
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

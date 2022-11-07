@@ -19,7 +19,7 @@ import com.example.applaudochallenge.ui.theme.dimension
 import com.example.applaudochallenge.utilities.getImageByPath
 
 @Composable
-fun ImageViewSection(
+internal fun ImageViewSection(
     modifier: Modifier = Modifier,
     imageUrl: String
 ) {

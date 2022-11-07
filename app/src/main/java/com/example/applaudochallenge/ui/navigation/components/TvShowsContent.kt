@@ -5,10 +5,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import androidx.paging.compose.LazyPagingItems
 import com.example.applaudochallenge.R
-import com.example.applaudochallenge.network.LoadingUiState
-import com.example.applaudochallenge.network.getNetworkStatus
-import com.example.applaudochallenge.ui.models.TvShow
-import com.example.applaudochallenge.ui.widgets.ScreenState
+import com.example.applaudochallenge.data.network.LoadingUiState
+import com.example.applaudochallenge.data.network.getNetworkStatus
+import com.example.applaudochallenge.data.models.TvShow
+import com.example.applaudochallenge.utilities.ScreenState
 
 @Composable
 internal fun TvShowsContent(

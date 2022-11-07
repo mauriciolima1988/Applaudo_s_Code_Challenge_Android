@@ -1,8 +1,8 @@
 package com.example.applaudochallenge.di
 
 import com.example.applaudochallenge.BuildConfig
-import com.example.applaudochallenge.network.ResponseAdapterFactory
-import com.example.applaudochallenge.network.TvShowsApi
+import com.example.applaudochallenge.data.network.ResponseAdapterFactory
+import com.example.applaudochallenge.data.network.TvShowsApi
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides

@@ -18,11 +18,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.capitalize
 import androidx.compose.ui.text.intl.Locale
-import androidx.compose.ui.unit.dp
 import com.example.applaudochallenge.R
-import com.example.applaudochallenge.ui.models.TvShowInfos.FiltersType
-import com.example.applaudochallenge.ui.models.TvShowInfos.getFilterMap
-import com.example.applaudochallenge.ui.models.TvShowInfos.getTvShowFilters
+import com.example.applaudochallenge.data.models.tvshowdetails.FiltersType
+import com.example.applaudochallenge.data.models.tvshowdetails.getFilterMap
+import com.example.applaudochallenge.data.models.tvshowdetails.getTvShowFilters
 import com.example.applaudochallenge.ui.theme.dimension
 
 @OptIn(ExperimentalMaterialApi::class)

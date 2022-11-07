@@ -28,14 +28,14 @@ import coil.request.ImageRequest
 import com.example.applaudochallenge.R
 import com.example.applaudochallenge.ui.PageWithState
 import com.example.applaudochallenge.utilities.getImageByPath
-import com.example.applaudochallenge.data.models.tvshowdetails.Episode
+import com.example.applaudochallenge.data.models.tvshowdetails.season.episode.Episode
 import com.example.applaudochallenge.ui.navigation.viewmodels.SeasonScreenViewModel
 import com.example.applaudochallenge.ui.theme.dimension
 import com.example.applaudochallenge.ui.widgets.BackButton
 
 @OptIn(ExperimentalLifecycleComposeApi::class)
 @Composable
-fun SeasonScreen(
+internal fun SeasonScreen(
     viewModel: SeasonScreenViewModel = hiltViewModel(),
     onBackPressed: () -> Unit
 ) {
@@ -71,9 +71,11 @@ fun SeasonScreen(
                 state = lazyListState
             ) {
                 item {
-                    EpisodesView(
-                        episodeList = episodes
-                    )
+                    episodes.forEach { episodes ->
+                        EpisodeView(
+                            episode = episodes
+                        )
+                    }
                 }
             }
             if (!whenItemVisible) {
@@ -86,23 +88,10 @@ fun SeasonScreen(
             }
         }
     }
-
-
 }
 
 @Composable
-fun EpisodesView(
-    episodeList: List<Episode>
-) {
-    episodeList.forEach { episodes ->
-        Episode(
-            episode = episodes
-        )
-    }
-}
-
-@Composable
-fun Episode(
+internal fun EpisodeView(
     episode: Episode
 ) {
     Card(
@@ -163,7 +152,7 @@ private fun ContentView(
 }
 
 @Composable
-private fun ImageView(modifier: Modifier = Modifier, url: String, ) {
+private fun ImageView(modifier: Modifier = Modifier, url: String) {
     val context = LocalContext.current
     SubcomposeAsyncImage(
         modifier = modifier
