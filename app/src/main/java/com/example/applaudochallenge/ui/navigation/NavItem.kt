@@ -3,6 +3,7 @@ package com.example.applaudochallenge.ui.navigation
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import com.example.applaudochallenge.ui.Constants.DETAILS_SCREEN
+import com.example.applaudochallenge.ui.Constants.LOGIN_SCREEN
 import com.example.applaudochallenge.ui.Constants.MAIN_SCREEN
 import com.example.applaudochallenge.ui.Constants.TVSHOW_ARGS_ID
 import com.example.applaudochallenge.ui.Constants.PROFILE_SCREEN
@@ -36,6 +37,7 @@ sealed class NavItem(
         }
     }
 
+    object Login : NavItem(LOGIN_SCREEN)
     object Main : NavItem(MAIN_SCREEN)
     object Search : NavItem(SEARCH_SCREEN)
     object Profile : NavItem(PROFILE_SCREEN)

@@ -1,4 +1,5 @@
 <resources>
+    <string name="mubi">Mubi</string>
     <string name="app_name">Applaudo Challenge</string>
     <string name="main_screen_title">Tv Shows</string>
     <string name="network_error">Error, try reloading</string>
@@ -9,6 +10,8 @@
     <string name="profile_mock_name">Patricio Flores</string>
     <string name="profile_mock_username">\@patricio_flores</string>
     <string name="logout_button_text">LOG OUT</string>
+    <string name="logint_button_text">LOG IN</string>
+    <string name="sign_in_text">Sign in to your account</string>
 
     <string name="leave_dialog_message">Are you sure you want to leave?</string>
     <string name="stay_dialog_button_text">STAY</string>

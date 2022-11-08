@@ -3,6 +3,7 @@ package com.example.applaudochallenge.ui
 object Constants {
 
     // Navigation screens
+    const val LOGIN_SCREEN = "login"
     const val MAIN_SCREEN = "main"
     const val DETAILS_SCREEN = "details"
     const val SEARCH_SCREEN = "search"

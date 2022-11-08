@@ -9,8 +9,8 @@ enum class FiltersType(val filterName: String) {
 
 fun getTvShowFilters(): List<FiltersType> {
     return listOf(
-        FiltersType.Popular,
         FiltersType.TopRated,
+        FiltersType.Popular,
         FiltersType.OnTV,
         FiltersType.AiringToday,
     )

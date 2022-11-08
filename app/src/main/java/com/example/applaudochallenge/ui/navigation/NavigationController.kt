@@ -1,7 +1,10 @@
 package com.example.applaudochallenge.ui.navigation
 
+import android.app.Activity
+import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
@@ -9,6 +12,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.applaudochallenge.ui.navigation.screens.DetailsScreen
+import com.example.applaudochallenge.ui.navigation.screens.LoginScreen
 import com.example.applaudochallenge.ui.navigation.screens.SeasonScreen
 import com.example.applaudochallenge.ui.navigation.screens.MainScreen
 import com.example.applaudochallenge.ui.navigation.screens.ProfileScreen
@@ -23,9 +27,16 @@ fun MainNavigation(
     NavHost(
         modifier = modifier,
         navController = navController,
-        startDestination = NavItem.Main.route
+        startDestination = NavItem.Login.route
     ) {
+        composable(NavItem.Login) {
+            LoginScreen(
+                onLoginClick = { navController.navigate(NavItem.Main.route) }
+            )
+        }
         composable(NavItem.Main) {
+            val activity = (LocalContext.current as? Activity)
+            BackHandler(enabled = true) { activity?.finish() }
             MainScreen(
                 onSearchClick = { navController.safeNavigate(NavItem.Search.route) },
                 onProfileClick = { navController.safeNavigate(NavItem.Profile.route) },

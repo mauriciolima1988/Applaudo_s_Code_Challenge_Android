@@ -90,7 +90,7 @@ private fun ProfileTopBar(
     TopAppBar(
         modifier = Modifier
             .fillMaxWidth()
-            .height(MaterialTheme.dimension.sizeDp80),
+            .height(MaterialTheme.dimension.sizeDp48),
         title = {
             Text(
                 text = stringResource(id = R.string.profile),
