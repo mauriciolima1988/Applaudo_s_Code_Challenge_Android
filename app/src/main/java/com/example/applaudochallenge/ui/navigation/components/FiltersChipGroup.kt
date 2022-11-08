@@ -35,11 +35,28 @@ internal fun FiltersChipGroup(
     val defaultFilter = stringResource(id = R.string.default_tvshows_filter)
     val selectedFilter = rememberSaveable { mutableStateOf(getFilterMap(defaultFilter)) }
 
-    Box(modifier = modifier.padding(MaterialTheme.dimension.sizeDp4)) {
-        LazyRow {
+    Box(
+        modifier = modifier
+            .padding(
+                top = MaterialTheme.dimension.sizeDp4,
+                bottom = MaterialTheme.dimension.sizeDp4,
+            )
+    ) {
+        LazyRow(
+            modifier = Modifier
+                .padding(
+                    start = MaterialTheme.dimension.sizeDp8,
+                    end = MaterialTheme.dimension.sizeDp8
+                )
+        ) {
             items(filters) { filter ->
                 FilterChip(
-                    modifier = Modifier.padding(horizontal = MaterialTheme.dimension.sizeDp2),
+                    modifier = Modifier
+                        .padding(
+                            top = MaterialTheme.dimension.sizeDp4,
+                            start = MaterialTheme.dimension.sizeDp4,
+                            end = MaterialTheme.dimension.sizeDp4
+                        ),
                     selected = selectedFilter.value == filter,
                     onClick = {
                         selectedFilter.value = getFilterMap(filter.filterName)

@@ -22,7 +22,7 @@
     <string name="remove_favorites">Removed from Favorites</string>
     <string name="episodes">Episodes</string>
     <string name="no_connection_found">No internet connection found</string>
-    <string name="default_tvshows_filter">popular</string>
+    <string name="default_tvshows_filter">top_rated</string>
     <string name="search">Search</string>
     <string name="season">Season</string>
 </resources>

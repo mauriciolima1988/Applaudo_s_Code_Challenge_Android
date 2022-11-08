@@ -230,7 +230,7 @@ internal fun ProfileSection() {
                     tint = Color.Gray
                 )
             }
-            FloatingActionButton(
+/*            FloatingActionButton(
                 modifier = Modifier.size(MaterialTheme.dimension.sizeDp32),
                 backgroundColor = MaterialTheme.colors.primary,
                 onClick = {}
@@ -241,7 +241,7 @@ internal fun ProfileSection() {
                     tint = Color.White,
                     contentDescription = null
                 )
-            }
+            }*/
         }
         Spacer(modifier = Modifier.height(MaterialTheme.dimension.sizeDp16))
         Text(

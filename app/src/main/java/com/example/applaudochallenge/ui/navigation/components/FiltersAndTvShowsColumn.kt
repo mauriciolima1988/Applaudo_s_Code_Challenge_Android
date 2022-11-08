@@ -15,17 +15,15 @@ internal fun FiltersAndTvShowsColumn(
     onCache: (TvShow) -> Unit
 ) {
     Column {
-        Column {
-            FiltersChipGroup(
-                onFilterSelected = onFilterSelected
-            )
-            TvShowsContent(
-                loadingUiState = loadingUiState,
-                onEmptyButtonClick = onEmptyButtonClick,
-                onRefresh = onRefresh,
-                onCache = onCache,
-                onCardClick = onCardClick
-            )
-        }
+        FiltersChipGroup(
+            onFilterSelected = onFilterSelected
+        )
+        TvShowsContent(
+            loadingUiState = loadingUiState,
+            onEmptyButtonClick = onEmptyButtonClick,
+            onRefresh = onRefresh,
+            onCache = onCache,
+            onCardClick = onCardClick
+        )
     }
 }

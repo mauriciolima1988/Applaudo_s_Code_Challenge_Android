@@ -25,7 +25,7 @@ class MainScreenViewModel @Inject constructor(
     val tvShows = _tvShows.asStateFlow()
 
     init {
-        getFilteredTvShows(FiltersType.Popular.filterName)
+        getFilteredTvShows(FiltersType.TopRated.filterName)
     }
 
     fun getFilteredTvShows(filter: String) = viewModelScope.launch {

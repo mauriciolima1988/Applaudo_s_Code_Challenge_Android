@@ -110,6 +110,7 @@ private fun DetailsView(
                         modifier = Modifier,
                         imageUrl = tvShowDetails.backdrop_path ?: "",
                         name = tvShowDetails.name,
+                        originalName = tvShowDetails.original_name,
                         average = (tvShowDetails.vote_average / 2)
                     )
                 }
@@ -181,6 +182,7 @@ private fun HeaderSection(
     modifier: Modifier = Modifier,
     imageUrl: String,
     name: String,
+    originalName: String,
     average: Double,
 ) {
     val context = LocalContext.current
@@ -209,15 +211,26 @@ private fun HeaderSection(
             )
         }
         Column(
-            modifier = Modifier.padding(MaterialTheme.dimension.sizeDp16),
+            modifier = Modifier
+                .padding(
+                    start = MaterialTheme.dimension.sizeDp16,
+                    top = MaterialTheme.dimension.sizeDp16,
+                    end = MaterialTheme.dimension.sizeDp16,
+                    bottom = MaterialTheme.dimension.sizeDp6,
+                ),
             horizontalAlignment = Alignment.Start
         ) {
             Text(
+                text = originalName,
+                color = Color.White,
+            )
+            Text(
                 text = name,
                 color = Color.White,
-                fontWeight = FontWeight.Bold
+                fontWeight = FontWeight.Light,
+                fontSize = 34.sp
             )
-            Spacer(modifier = Modifier.height(MaterialTheme.dimension.sizeDp8))
+            Spacer(modifier = Modifier.height(MaterialTheme.dimension.sizeDp10))
             RatingBar(
                 rating = average,
                 starsColor = MaterialTheme.colors.secondary

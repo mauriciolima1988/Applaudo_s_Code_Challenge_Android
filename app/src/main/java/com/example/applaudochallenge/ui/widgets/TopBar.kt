@@ -26,7 +26,7 @@ internal fun TopBar(
         title = {
             Text(
                 text = stringResource(id = R.string.main_screen_title),
-                fontWeight = FontWeight.Bold,
+                fontWeight = FontWeight.SemiBold,
                 color = Color.White,
             )
         },

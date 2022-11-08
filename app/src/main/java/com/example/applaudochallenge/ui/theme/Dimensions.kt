@@ -10,6 +10,7 @@ import androidx.compose.ui.unit.dp
 data class Dimensions(
     val sizeDp2: Dp = 2.dp,
     val sizeDp4: Dp = 4.dp,
+    val sizeDp6: Dp = 6.dp,
     val sizeDp8: Dp = 8.dp,
     val sizeDp10: Dp = 10.dp,
     val sizeDp16: Dp = 16.dp,
