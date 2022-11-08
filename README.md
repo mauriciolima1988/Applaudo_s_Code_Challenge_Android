@@ -20,8 +20,11 @@
 
 * Large screen support: show more TV shows depending on the screen size.
 ![10](https://user-images.githubusercontent.com/106693466/200460995-8557cd53-c1c0-4e09-8a1d-e74b21fea1cf.png)
-
-
+---
+## Bottlenecks
+* Splash screen can be improved
+* Need to add support for Dark Mode
+* Need to add Unit and Integration tests
 ---
 
 ## Libraries used on this project:
